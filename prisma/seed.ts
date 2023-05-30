@@ -97,74 +97,74 @@ async function run() {
   ])
 
 
-  // await Promise.all([
-  /**
-   * Procedures (Completed/Available): 1/4
-   */
-  // prisma.day.create({
-  //   data: {
-  //     /** Tuesday */
-  //     date: new Date('2023-01-03T03:00:00.000z'),
-  //     dayProcedures: {
-  //       create: {
-  //         procedure_id: firstProcedureId,
-  //       }
-  //     }
-  //   }
-  // }),
+  await Promise.all([
+    /**
+     * Procedures (Completed/Available): 1/4
+     */
+    prisma.day.create({
+      data: {
+        /** Tuesday */
+        date: new Date('2023-01-03T03:00:00.000z'),
+        dayProcedures: {
+          create: {
+            procedure_id: firstProcedureId,
+          }
+        }
+      }
+    }),
 
-  /**
-   * Procedures (Completed/Available): 2/4
-   */
-  // prisma.day.create({
-  //   data: {
-  //     /** Wednesday */
-  //     date: new Date('2023-01-04T03:00:00.000z'),
-  //     dayProcedures: {
-  //       create: [
-  //         { procedure_id: firstProcedureId },
-  //         { procedure_id: secondProcedureId },
-  //       ]
-  //     }
-  //   }
-  // }),
+    /**
+     * Procedures (Completed/Available): 2/4
+     */
+    prisma.day.create({
+      data: {
+        /** Wednesday */
+        date: new Date('2023-01-04T03:00:00.000z'),
+        dayProcedures: {
+          create: [
+            { procedure_id: firstProcedureId },
+            { procedure_id: secondProcedureId },
+          ]
+        }
+      }
+    }),
 
-  /**
-   * Procedures (Completed/Available): 3/4
-   */
-  // prisma.day.create({
-  //   data: {
-  //     /** Thursday */
-  //     date: new Date('2023-01-05T03:00:00.000z'),
-  //     dayProcedures: {
-  //       create: [
-  //         { procedure_id: firstProcedureId },
-  //         { procedure_id: secondProcedureId },
-  //         { procedure_id: thirdProcedureId },
-  //       ]
-  //     }
-  //   }
-  // }),
+    /**
+     * Procedures (Completed/Available): 3/4
+     */
+    prisma.day.create({
+      data: {
+        /** Thursday */
+        date: new Date('2023-01-05T03:00:00.000z'),
+        dayProcedures: {
+          create: [
+            { procedure_id: firstProcedureId },
+            { procedure_id: secondProcedureId },
+            { procedure_id: thirdProcedureId },
+          ]
+        }
+      }
+    }),
 
-  /**
-   * Procedures (Completed/Available): 4/4
-   */
-  //   prisma.day.create({
-  //     data: {
-  //       /** Thursday */
-  //       date: new Date('2023-01-06T03:00:00.000z'),
-  //       dayProcedures: {
-  //         create: [
-  //           { procedure_id: firstProcedureId },
-  //           { procedure_id: secondProcedureId },
-  //           { procedure_id: thirdProcedureId },
-  //           { procedure_id: fourthProcedureId },
-  //         ]
-  //       }
-  //     }
-  //   }),
+    /**
+     * Procedures (Completed/Available): 4/4
+     */
+    prisma.day.create({
+      data: {
+        /** Thursday */
+        date: new Date('2023-01-06T03:00:00.000z'),
+        dayProcedures: {
+          create: [
+            { procedure_id: firstProcedureId },
+            { procedure_id: secondProcedureId },
+            { procedure_id: thirdProcedureId },
+            { procedure_id: fourthProcedureId },
+          ]
+        }
+      }
+    }),
 
-  // ])
+  ])
 }
 
 run()
