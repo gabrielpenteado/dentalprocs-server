@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Procedure {
@@ -51,5 +52,6 @@ model DayProcedure {
   procedure Procedure @relation(fields: [procedure_id], references: [id])
 
   @@unique([day_id, procedure_id])
+  @@index([procedure_id])
   @@map("day_procedures")
 }
