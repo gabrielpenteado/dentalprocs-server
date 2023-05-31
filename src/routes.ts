@@ -143,7 +143,7 @@ export async function appRoutes(app: FastifyInstance) {
           JOIN procedures P
             ON P.id = PWD.procedure_id
           WHERE
-            PWD.week_day = cast(DATE_FORMAT('%w', D.date/1000.0, 'unixepoch') as signed)
+            PWD.week_day = cast(DATE_FORMAT(D.date, '%w') as signed)
             AND P.created_at <= D.date
         ) as amount
       FROM 
