@@ -11,8 +11,9 @@ app.register(cors); // Possible to config to only some address have access to th
 app.register(appRoutes);
 
 app.listen({
-  port: 3333,
+  port: 3000,
   host: '0.0.0.0',
 }).then((url) => {
   console.log(`Server running on ${url}`);
-})
+}).catch(err => console.log('Error:', err))
+
