@@ -2,11 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "rm -rf ./dist & tsc",
-    "start": "node dist/src/index.js"
+    "dev": "tsx src/server.ts",
+    "build": "tsup src",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "prisma": "^4.12.0",
+    "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "^5.0.3"
   },
