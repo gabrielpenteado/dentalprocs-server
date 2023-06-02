@@ -39,7 +39,7 @@ export async function appRoutes(app: FastifyInstance) {
 
     const parsedDate = dayjs(date).startOf('day');
     const weekDay = parsedDate.get('day');
-    // console.log(date, weekDay);
+    console.log(date, weekDay);
 
     const possibleProcedures = await prisma.procedure.findMany({
       where: {
@@ -130,7 +130,7 @@ export async function appRoutes(app: FastifyInstance) {
         D.date,
         (
           SELECT 
-            cast(count(*) as decimal)
+            cast(count(*) as float)
           FROM
             day_procedures DP
           WHERE 
@@ -138,13 +138,13 @@ export async function appRoutes(app: FastifyInstance) {
         ) as completed,
         (
           SELECT
-            cast(count(*) as decimal)
+            cast(count(*) as float)
           FROM
             procedure_week_days PWD
           JOIN procedures P
             ON P.id = PWD.procedure_id
           WHERE
-            PWD.week_day = cast(extract(dow from D.Date) as integer)
+            PWD.week_day = cast(strftime('%w', D.date/1000.0, 'unixepoch') as int)
             AND P.created_at <= D.date
         ) as amount
       FROM 
@@ -158,7 +158,7 @@ export async function appRoutes(app: FastifyInstance) {
 
   app.get('/chart', async () => {
     const chartAllProceduresCompleted = await prisma.$queryRaw`
-      SELECT title, cast(COUNT (*) as decimal) AS total
+      SELECT title, cast(COUNT (*) as float) AS total
       FROM day_procedures
       JOIN procedures
       ON day_procedures.procedure_id = procedures.id
