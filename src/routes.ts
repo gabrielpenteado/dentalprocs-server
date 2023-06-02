@@ -39,6 +39,7 @@ export async function appRoutes(app: FastifyInstance) {
 
     const parsedDate = dayjs(date).startOf('day');
     const weekDay = parsedDate.get('day');
+    // console.log(date, weekDay);
 
     const possibleProcedures = await prisma.procedure.findMany({
       where: {
