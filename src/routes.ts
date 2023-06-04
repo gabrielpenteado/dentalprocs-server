@@ -81,6 +81,7 @@ export async function appRoutes(app: FastifyInstance) {
 
     const { id } = toggleProcedureParams.parse(req.params);
 
+    // const today = dayjs().startOf('day').toDate();
     const today = dayjs().startOf('day').toDate();
 
     let day = await prisma.day.findUnique({
