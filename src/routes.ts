@@ -37,7 +37,9 @@ export async function appRoutes(app: FastifyInstance) {
 
     const { date } = getDayParams.parse(req.query);
 
-    const parsedDate = dayjs(date).startOf('day');
+    // const parsedDate = dayjs(date).startOf('day');
+    const parsedDate = dayjs(date).endOf('day');
+    // const parsedDate = dayjs(date).startOf('hour'); localhost
     const weekDay = parsedDate.get('day');
     // console.log(date, weekDay);
 
@@ -81,8 +83,9 @@ export async function appRoutes(app: FastifyInstance) {
 
     const { id } = toggleProcedureParams.parse(req.params);
 
-    // const today = dayjs().startOf('day').toDate();
-    const today = dayjs().startOf('hour').toDate();
+    // const today = dayjs().startOf('day').toDate(); localhost
+    // const today = dayjs().startOf('hour').toDate();
+    const today = dayjs().endOf('day').toDate();
 
     let day = await prisma.day.findUnique({
       where: {
