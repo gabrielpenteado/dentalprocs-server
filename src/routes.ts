@@ -15,19 +15,21 @@ export async function appRoutes(app: FastifyInstance) {
 
     const today = dayjs().startOf('day').toDate()
 
-    await prisma.procedure.create({
-      data: {
-        title,
-        created_at: today,
-        weekDays: {
-          create: weekDays.map(weekDay => {
-            return {
-              week_day: weekDay
-            }
-          })
+    if (title === "Whitening" || title === "Cleaning") {
+      await prisma.procedure.create({
+        data: {
+          title,
+          created_at: today,
+          weekDays: {
+            create: weekDays.map(weekDay => {
+              return {
+                week_day: weekDay
+              }
+            })
+          }
         }
-      }
-    })
+      })
+    }
   })
 
   app.get('/day', async (req) => {
