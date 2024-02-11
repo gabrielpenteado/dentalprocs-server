@@ -10,9 +10,7 @@
 </h2>
 
 <div align="center">
-  <a href="https://github.com/gabrielpenteado/dentalprocs-server/blob/main/LICENSE.md">
-    <img src="https://img.shields.io/github/license/gabrielpenteado/mydearpage?color=informational&style=flat-square" alt="license"/>
-  </a>
+  <img src="https://img.shields.io/github/license/gabrielpenteado/mydearpage?color=informational&style=flat-square" alt="license"/>
 
   <img src="https://img.shields.io/static/v1?label=npm&message=v9.5.0&color=informational&style=flat-square" alt="npm version">
 </div>
