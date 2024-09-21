@@ -2,3 +2,4 @@
 .env
 dist
 dev.db
+.env.development.local
