@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "tsx src/server.ts",
     "build": "tsup src",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "vercel-build": "prisma generate && prisma migrate deploy && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
   "dependencies": {
     "@fastify/cors": "^8.2.1",
     "@prisma/client": "^4.12.0",
+    "@vercel/postgres": "^0.10.0",
     "dayjs": "^1.11.7",
     "fastify": "^4.15.0",
     "zod": "^3.21.4"
