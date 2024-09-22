@@ -14,7 +14,15 @@ export async function appRoutes(app: FastifyInstance) {
 
     const today = dayjs().startOf("day").toDate();
 
-    if (title === "Whitening" || title === "Cleaning") {
+    if (
+      title === "Whitening" ||
+      title === "Cleaning" ||
+      title === "Crowns" ||
+      title === "Braces" ||
+      title === "Veneers" ||
+      title === "Dentures" ||
+      title === "X-Ray"
+    ) {
       await prisma.procedure.create({
         data: {
           title,

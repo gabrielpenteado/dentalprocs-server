@@ -13,6 +13,11 @@ datasource db {
     directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
+// if is a new database, include command "prisma db seed" between "prisma migrate dev" and "npm run build" 
+// in package.json vercel-build script. 
+//
+// ->  "vercel-build": "prisma generate && prisma migrate deploy && prisma db seed && npm run build"
+
 model Procedure {
     id         String   @id @default(uuid())
     title      String
