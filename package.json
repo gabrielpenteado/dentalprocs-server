@@ -2,13 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "serverless.js",
   "engines": {
-    "node": "18"
+    "node": "20"
   },
   "scripts": {
     "dev": "tsx src/server.ts",
-    "build": "tsup src",
+    "build": "tsc",
     "start": "node dist/server.js",
     "vercel-build": "prisma generate && prisma migrate deploy && npm run build"
   },
@@ -20,10 +20,12 @@
     "@prisma/client": "^4.12.0",
     "@vercel/postgres": "^0.10.0",
     "dayjs": "^1.11.7",
+    "dotenv": "^16.4.5",
     "fastify": "^4.15.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
     "@types/node": "^18.15.11",
     "prisma": "^4.12.0",
     "tsup": "^6.7.0",

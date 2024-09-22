@@ -7,6 +7,7 @@ const app = Fastify();
 app.register(cors); // Possible to config to only some address have access to the back-end
 // "origin: 'http://endereço/rota'"
 
+// Registrar as rotas
 app.register(appRoutes);
 
 app
